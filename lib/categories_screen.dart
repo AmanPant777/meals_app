@@ -5,15 +5,18 @@ class CategorieScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GridView(
-      children: DUMMY_CATEGORIES.map((item) =>CategoryItems(item.title, item.color) ).toList(),
-      gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-          maxCrossAxisExtent: 200,
-          childAspectRatio: 2/3,
-          crossAxisSpacing: 20,
-          mainAxisSpacing: 20
+    return Scaffold(
+      appBar: AppBar(title: Text('Meals App'),),
+      body: GridView(
+        children: DUMMY_CATEGORIES.map((item) =>CategoryItems(item.title, item.color) ).toList(),
+        gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+            maxCrossAxisExtent: 200,
+            childAspectRatio: 2/3,
+            crossAxisSpacing: 10,
+            mainAxisSpacing: 10
+        ),
+    
       ),
-
     );
   }
 }
