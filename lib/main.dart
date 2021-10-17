@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meals_app/categories_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,7 +15,10 @@ class MyApp extends StatelessWidget {
       home: 
       Scaffold(
         appBar: AppBar(
-          title: Text('Hello Meals App'),),),
+          title: Text('Hello Meals App'),
+          ),
+          body: CategorieScreen(),
+          ),
     );
   }
 }
