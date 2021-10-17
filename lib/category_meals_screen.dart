@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class CategoryMealsScreen extends StatelessWidget {
+  static const routeName = '/category-meals';
+
   Widget build(BuildContext context) {
     // add a null check if it can be null ! ! !
     final routeArgs =
