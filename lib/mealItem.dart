@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:meals_app/category_meals_screen.dart';
+import 'package:meals_app/meal_details_screen.dart';
 import 'package:meals_app/models/meal.dart';
 
 class MealItem extends StatelessWidget {
+  final String id;
   final String title;
   final String imageUrl;
   final int duration;
@@ -9,7 +12,8 @@ class MealItem extends StatelessWidget {
   final Affordability affordability;
 
   MealItem(
-      {required this.title,
+      {required this.id,
+      required this.title,
       required this.imageUrl,
       required this.duration,
       required this.complexity,
@@ -47,11 +51,15 @@ class MealItem extends StatelessWidget {
     }
   }
 
-  void selectItem() {}
+  void selectItem(BuildContext context) {
+    Navigator.of(context)
+        .pushNamed(MealDetailScreen.routename, arguments: id);
+  }
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: selectItem,
+      onTap:()=>selectItem(context),
       child: Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
         elevation: 4,
@@ -90,36 +98,36 @@ class MealItem extends StatelessWidget {
             Padding(
               padding: EdgeInsets.all(15),
               child: Row(
-                mainAxisAlignment:MainAxisAlignment.spaceAround,
-                children: [
-                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    Icon(Icons.schedule),
-                    SizedBox(
-                      width: 10,
+                    Row(
+                      children: [
+                        Icon(Icons.schedule),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Text('$duration')
+                      ],
                     ),
-                    Text('$duration')
-                  ],
-                ),
-                Row(
-                  children: [
-                    Icon(Icons.work),
-                    SizedBox(
-                      width: 10,
+                    Row(
+                      children: [
+                        Icon(Icons.work),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Text('$complexityText')
+                      ],
                     ),
-                    Text('$complexityText')
-                  ],
-                ),
-                 Row(
-                  children: [
-                    Icon(Icons.attach_money),
-                    SizedBox(
-                      width: 10,
+                    Row(
+                      children: [
+                        Icon(Icons.attach_money),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Text('$affordablityText')
+                      ],
                     ),
-                    Text('$affordablityText')
-                  ],
-                ),
-              ]),
+                  ]),
             )
           ],
         ),
