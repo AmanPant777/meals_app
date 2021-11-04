@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:meals_app/categories_screen.dart';
 import 'package:meals_app/favourate.dart';
+import 'package:meals_app/widgets/drawer.dart';
 
 class TabsScreen extends StatefulWidget {
   @override
@@ -28,6 +29,7 @@ class _TabsScreenState extends State<TabsScreen> {
         appBar: AppBar(
           title: Text(_pages[_selectpageindex]['title']),
         ),
+        drawer: MainDrawer(),
         body: _pages[_selectpageindex]['page'],
         bottomNavigationBar: BottomNavigationBar(
           onTap: _selectpage,
